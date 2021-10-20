@@ -47,20 +47,20 @@
             <br>
 
           <div class="form-group" style="text-align:center;">
-         <label>Account Number :   </label> <label>{{saccountno}} </label>
+         <label>Your (Source) Account Number :   </label> <label>{{saccountno}} </label>
         </div>
         
           <div class="form-group">
-            <label>Enter the IFSC Code of the account to be transfered to:</label>
+            <label>Bank Routing number:</label>
             <br>
-                <input type="text" formControlName="ifscNo" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.ifscNo.errors }" placeholder="Enter Receivers IFSC Code"/>
+                <input type="text" formControlName="ifscNo" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.ifscNo.errors }" placeholder="Enter Receiver's Bank Routing #"/>
                 <div *ngIf="submitted && fval.ifscNo.errors" class="invalid-feedback">
-                    <div *ngIf="fval.ifscNo.errors.required">IFSC Code is required</div>
+                    <div *ngIf="fval.ifscNo.errors.required">Bank Routing # needed</div>
                 </div>
           </div>
   
           <div class="form-group">
-            <label>Enter the account number you would like to transfer To:</label>
+            <label>Target Account Number:</label>
             <br>
                 <input type="text" formControlName="raccountNo" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.raccountNo.errors }" placeholder="Enter Receiver's account number"/>
                 <div *ngIf="submitted && fval.raccountNo.errors" class="invalid-feedback">
@@ -71,7 +71,7 @@
           <div class="form-group">
             <label>Enter Amount:</label>
             <br>
-                <input type="text" formControlName="amount" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.amount.errors }" placeholder="Enter amount"/>
+                <input type="text" formControlName="amount" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval.amount.errors }" placeholder="Enter $$ amount"/>
                 <div *ngIf="submitted && fval.amount.errors" class="invalid-feedback">
                     <div *ngIf="fval.amount.errors.required">Amount is required</div>
                 </div>

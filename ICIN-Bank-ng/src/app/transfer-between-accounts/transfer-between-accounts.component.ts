@@ -49,7 +49,6 @@ get fval() { return this.transferForm.controls; }
     const result:any = Object.assign({}, this.transferForm.value);
         
     
-    // Do useful stuff with the gathered data
     try{
       this.transferService.insertEntry(result.username,result.saccountNo,result.ifscNo,result.raccountNo,result.amount).subscribe(
         (data : any) =>{
@@ -57,14 +56,14 @@ get fval() { return this.transferForm.controls; }
          if(data.transferStatus==true){
           Swal.fire({
             icon: 'success',
-            title: 'Transaction successful',
+            title: 'Transaction Completed Successfully',
             text:data.responseMessage
           })
          }
          else{
           Swal.fire({
             icon: 'error',
-            title: 'Oops...',
+            title: 'Error: ',
             text: data.responseMessage,
           })
          }
