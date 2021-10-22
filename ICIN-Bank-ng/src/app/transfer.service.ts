@@ -10,15 +10,13 @@ export class TransferService {
   
     constructor(private http: HttpClient) { }
   
-    insertEntry(username:string, saccount:string,ifscNo:string,raccount:string,amount:number) {
+    insertEntry(username:string, saccount:string,raccount:string,amount:number) {
       var body = {
         username:username,
         saccount: saccount,
-        ifsc: ifscNo, 
         raccount:raccount,
         amount:amount
       }
-      console.log(body);
       return this.http.post(this.rootUrl + '/account/transfer', body);
     }
   }

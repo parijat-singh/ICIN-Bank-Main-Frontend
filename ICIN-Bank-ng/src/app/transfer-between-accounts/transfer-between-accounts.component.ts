@@ -23,12 +23,10 @@ export class TransferBetweenAccountsComponent implements OnInit {
     
    var username:String=localStorage.getItem("username");
    var accNo=+localStorage.getItem("savingAccNo");
-   console.log(accNo)
-   console.log(username)
+   
    this.transferForm = this.formBuilder.group({
       username : username,
       saccountNo: accNo,
-      ifscNo: ['', [Validators.required, Validators.minLength(8)]],
       raccountNo: ['', [Validators.required]],
       amount:['',[Validators.required]]
   
@@ -50,7 +48,7 @@ get fval() { return this.transferForm.controls; }
         
     
     try{
-      this.transferService.insertEntry(result.username,result.saccountNo,result.ifscNo,result.raccountNo,result.amount).subscribe(
+      this.transferService.insertEntry(result.username,result.saccountNo,result.raccountNo,result.amount).subscribe(
         (data : any) =>{
          this.loading=false;
          if(data.transferStatus==true){
