@@ -70,7 +70,7 @@ export class DepositWithdrawComponent implements OnInit {
 
   }
  
-  get fwval() { return this.withdrawForm.controls;}
+  /* get fwval() { return this.withdrawForm.controls;}
 
   withdraw() {
     this.submitted = true;
@@ -104,5 +104,5 @@ export class DepositWithdrawComponent implements OnInit {
     }
 
 
-  }
+  } */
 }

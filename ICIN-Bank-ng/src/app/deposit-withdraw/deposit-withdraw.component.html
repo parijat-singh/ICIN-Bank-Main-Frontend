@@ -58,7 +58,7 @@
             <label>Deposit Amount:</label>
             <br>
             <input type="text" formControlName="amount" class="form-control"
-              [ngClass]="{ 'is-invalid': submitted && fval.amount.errors }" placeholder="Enter $$ amount" />
+              [ngClass]="{ 'is-invalid': submitted && fval.amount.errors }" placeholder="Enter $$ amount to deposit" />
             <div *ngIf="submitted && fval.amount.errors" class="invalid-feedback">
               <div *ngIf="fval.amount.errors.required">Amount is required</div>
             </div>
@@ -74,7 +74,7 @@
         </form>
       </div>
     </th>
-    <th> 
+   <!--  <th> 
       <div class="container">
         <form [formGroup]="withdrawForm" (ngSubmit)="withdraw()" method="post">
           <div class="col-xs-4" style="left:35%;">
@@ -90,7 +90,7 @@
             <label>Withdrawal Amount:</label>
             <br>
             <input type="text" formControlName="amount" class="form-control"
-              [ngClass]="{ 'is-invalid': submitted && fval1.amount.errors }" placeholder="Enter $$ amount" />
+              [ngClass]="{ 'is-invalid': submitted && fval1.amount.errors }" placeholder="Enter $$ amount to withdraw" />
             <div *ngIf="submitted && fval.amount.errors" class="invalid-feedback">
               <div *ngIf="fval1.amount.errors.required">Amount is required</div>
             </div>
@@ -105,6 +105,6 @@
 
         </form>
       </div>
-    </th>
+    </th> -->
   </tr>
 </table>
