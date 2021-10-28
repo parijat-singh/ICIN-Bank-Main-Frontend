@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import{ GlobalConstants } from './global-constants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
-  readonly rootUrl = 'http://localhost:8080';
 
   constructor(private http: HttpClient) { }
 
@@ -14,6 +14,6 @@ export class LoginService {
       username: userName,
       password: password
     }
-    return this.http.post(this.rootUrl + '/login', body);
+    return this.http.post(GlobalConstants.backendURL + '/login', body);
   }
 }

@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {ChequebookResponse} from './_models/chequebookresponse'
+import{ GlobalConstants } from './global-constants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RequestService {
-
-  readonly rootUrl = 'http://localhost:8080';
 
   constructor(private http: HttpClient) { }
 
@@ -17,6 +16,6 @@ export class RequestService {
       no_of_pages: pages, 
     }
     console.log(body);
-    return this.http.post<ChequebookResponse>(this.rootUrl + '/cheque/request', body);
+    return this.http.post<ChequebookResponse>(GlobalConstants.backendURL + '/cheque/request', body);
   }
 }

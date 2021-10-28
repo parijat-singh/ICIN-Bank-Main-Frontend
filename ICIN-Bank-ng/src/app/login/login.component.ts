@@ -6,6 +6,7 @@ import { LoginService } from '../login.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { AuthService } from '../auth.service';
 import Swal from 'sweetalert2';
+import{ GlobalConstants } from '../global-constants';
 
 
 @Component({
@@ -20,6 +21,7 @@ export class LoginComponent implements OnInit {
   submitted = false;
   returnUrl: string;
   isLoginError : boolean = false;
+  adminUrl: string;
   
   constructor(
     private formBuilder: FormBuilder,
@@ -30,6 +32,7 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.adminUrl = GlobalConstants.adminURL;
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required]

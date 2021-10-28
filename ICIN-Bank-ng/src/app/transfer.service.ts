@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import{ GlobalConstants } from './global-constants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TransferService {
 
-    readonly rootUrl = 'http://localhost:8080';
-  
     constructor(private http: HttpClient) { }
   
     insertEntry(username:string, saccount:string,raccount:string,amount:number) {
@@ -17,7 +16,7 @@ export class TransferService {
         raccount:raccount,
         amount:amount
       }
-      return this.http.post(this.rootUrl + '/account/transfer', body);
+      return this.http.post(GlobalConstants.backendURL + '/account/transfer', body);
     }
   }
   

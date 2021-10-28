@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import{ GlobalConstants } from './global-constants';
 
 @Injectable({
   providedIn: 'root'
@@ -7,9 +8,7 @@ import { HttpClient } from '@angular/common/http';
 export class UpdateService {
 
 
-  readonly rootUrl = 'http://localhost:8080';
-
-  constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient) { }
 
   update(username:string,phone: number,email: string,address: string,prevpassword:string,newpassword:string) {
     var body = {
@@ -21,6 +20,6 @@ export class UpdateService {
       newpassword:newpassword
     }
     console.log(body);
-    return this.http.put(this.rootUrl + '/profile/update', body);
+    return this.http.put(GlobalConstants.backendURL + '/profile/update', body);
   }
 }

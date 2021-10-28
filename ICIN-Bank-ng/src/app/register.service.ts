@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import{ GlobalConstants } from './global-constants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RegisterService {
-
-  readonly rootUrl = 'http://localhost:8080';
 
   constructor(private http: HttpClient) { }
 
@@ -23,6 +22,6 @@ export class RegisterService {
       identity:identity,
       email : email,
     }
-    return this.http.post(this.rootUrl + '/register', body);
+    return this.http.post(GlobalConstants.backendURL + '/register', body);
   }
 }
