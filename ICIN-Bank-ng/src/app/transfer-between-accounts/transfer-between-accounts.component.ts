@@ -12,65 +12,65 @@ import Swal from 'sweetalert2';
 })
 export class TransferBetweenAccountsComponent implements OnInit {
 
-  constructor( private formBuilder: FormBuilder,
+  constructor(private formBuilder: FormBuilder,
     private router: Router,
     private transferService: TransferService) { }
   transferForm: FormGroup;
   loading = false;
   submitted = false;
-  
+
   ngOnInit() {
-    
-   var username:String=localStorage.getItem("username");
-   var accNo=+localStorage.getItem("savingAccNo");
-   
-   this.transferForm = this.formBuilder.group({
-      username : username,
+
+    var username: String = localStorage.getItem("username");
+    var accNo = +localStorage.getItem("savingAccNo");
+
+    this.transferForm = this.formBuilder.group({
+      username: username,
       saccountNo: accNo,
       raccountNo: ['', [Validators.required]],
-      amount:['',[Validators.required]]
-  
-  });
+      amount: ['', [Validators.required]]
 
-}
-get saccountno(): any {
-  return localStorage.getItem('savingAccNo');
-}
-get fval() { return this.transferForm.controls; }
+    });
 
-  transfer(){
+  }
+  get saccountno(): any {
+    return localStorage.getItem('savingAccNo');
+  }
+  get fval() { return this.transferForm.controls; }
+
+  transfer() {
     this.submitted = true;
     if (this.transferForm.invalid) {
       return;
     }
     this.loading = true;
-    const result:any = Object.assign({}, this.transferForm.value);
-        
-    
-    try{
-      this.transferService.insertEntry(result.username,result.saccountNo,result.raccountNo,result.amount).subscribe(
-        (data : any) =>{
-         this.loading=false;
-         if(data.transferStatus==true){
-          Swal.fire({
-            icon: 'success',
-            title: 'Transaction Completed Successfully',
-            text:data.responseMessage
-          })
-         }
-         else{
-          Swal.fire({
-            icon: 'error',
-            title: 'Error: ',
-            text: data.responseMessage,
-          })
-         }
-         }
-       );
-    }catch{
-      this.loading=false;
+    const result: any = Object.assign({}, this.transferForm.value);
+
+
+    try {
+      this.transferService.insertEntry(result.username, result.saccountNo, result.raccountNo, result.amount).subscribe(
+        (data: any) => {
+          this.loading = false;
+          if (data.transferStatus == true) {
+            Swal.fire({
+              icon: 'success',
+              title: 'Transaction Completed Successfully',
+              text: data.responseMessage
+            })
+          }
+          else {
+            Swal.fire({
+              icon: 'error',
+              title: 'Error: ',
+              text: data.responseMessage,
+            })
+          }
+        }
+      );
+    } catch {
+      this.loading = false;
     }
-      
+
 
   }
 }
@@ -79,15 +79,15 @@ get fval() { return this.transferForm.controls; }
 
 
 
-  
-  
-  
-  
 
-  
 
-  
 
-  
+
+
+
+
+
+
+
 
 

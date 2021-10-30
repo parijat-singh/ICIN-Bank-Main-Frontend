@@ -39,7 +39,6 @@ export class EditProfileComponent implements OnInit {
 
   update(){
     this.submitted = true;
-    // return for here if form is invalid
     if (this.updateForm.invalid) {
       return;
     }
@@ -48,9 +47,7 @@ export class EditProfileComponent implements OnInit {
         try{
           this.updateService.update(this.username,result.phone,result.email,result.address,result.prevpassword,result.password).subscribe(
             (data : any) =>{
-              // localStorage.clear();
-              // localStorage.setItem('user',JSON.stringify(data));
-              console.log(data);
+              
               this.loading=false;
               if(data.flag==true){
                 Swal.fire(
@@ -63,7 +60,7 @@ export class EditProfileComponent implements OnInit {
               }else{
                 Swal.fire({
                   icon: 'error',
-                  title: 'Oops...',
+                  title: 'Profile Could not be updated!',
                   text: data.message,
                 })
               }
@@ -75,8 +72,8 @@ export class EditProfileComponent implements OnInit {
           this.loading=false;
           Swal.fire({
             icon: 'error',
-            title: 'Oops...',
-            text: "Something went wrong!"
+            title: '',
+            text: "Update Unsuccessful, Please try later!"
           })
         }
         

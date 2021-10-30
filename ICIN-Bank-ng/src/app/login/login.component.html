@@ -1,10 +1,31 @@
 
-<h1 class=bg-success> Welcome to ICIN Bank</h1>
-<h4> <a href="{{adminUrl}}">Admin Login</a></h4>
+<h1 class=bg-success style="text-align: center;"> Welcome to ICIN Bank</h1>
+<nav class="navbar navbar-expand-sm  navbar-dark bg-primary">
+    <a class="navbar-brand" routerLink="/home">ICIN Bank Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarsExample04">
+      <ul class="navbar-nav mr-auto">
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="{{adminUrl}}">Admin Login<span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/about">About<span class="sr-only"></span></a>
+          </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contact">Contact Us<span class="sr-only"></span></a>
+        </li>
+      </ul>
+      
+    </div>
+  </nav>
+
 <div class="container">
 <form [formGroup]="loginForm" (ngSubmit)="onFormSubmit()">
-    <br>
-    <br>
     <h3 style="text-align: center;">ICIN Bank Customer Login</h3>
     <br>
     <div class="form-group">

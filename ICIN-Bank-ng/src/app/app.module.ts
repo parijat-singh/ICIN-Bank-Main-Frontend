@@ -17,6 +17,9 @@ import { TransferBetweenAccountsComponent } from './transfer-between-accounts/tr
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { TransferHistoryComponent } from './transfer-history/transfer-history.component';
 import { DepositWithdrawComponent } from './deposit-withdraw/deposit-withdraw.component';
+import { AboutComponent } from './about/about.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 
@@ -32,6 +35,9 @@ import { DepositWithdrawComponent } from './deposit-withdraw/deposit-withdraw.co
     EditProfileComponent,
     TransferHistoryComponent,
     DepositWithdrawComponent,
+    AboutComponent,
+    NavbarComponent,
+    ContactComponent,
   
   ],
   imports: [

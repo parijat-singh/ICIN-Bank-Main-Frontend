@@ -11,11 +11,11 @@ import Swal from 'sweetalert2';
 })
 export class ChequeBookRequestComponent implements OnInit {
 
-  requestingAccNo:number=+localStorage.getItem("savingAccNo");
+  requestingAccNo: number = +localStorage.getItem("savingAccNo");
 
   selectedValue: number;
 
-  loading:boolean=false;
+  loading: boolean = false;
 
   pages = [
     { name: "20", value: 20 },
@@ -23,17 +23,16 @@ export class ChequeBookRequestComponent implements OnInit {
     { name: "75", value: 75 }
   ]
 
-  filterSelected(value){
+  filterSelected(value) {
     this.selectedValue = value;
   }
 
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
-    private requestService : RequestService,
+    private requestService: RequestService,
 
-  )
-  {}
+  ) { }
 
   ngOnInit(): void {
 
@@ -41,22 +40,22 @@ export class ChequeBookRequestComponent implements OnInit {
 
   setOption() {
     this.loading = true;
-    if(this.selectedValue==null){
-      this.selectedValue=20;
+    if (this.selectedValue == null) {
+      this.selectedValue = 20;
     }
-    try{
-      this.requestService.insertRequest(this.requestingAccNo,+this.selectedValue).subscribe((res:any)=>{
+    try {
+      this.requestService.insertRequest(this.requestingAccNo, +this.selectedValue).subscribe((res: any) => {
         console.log(res);
         this.loading = false;
-        if(res.status==true){
+        if (res.status == true) {
           Swal.fire(
             {
               icon: 'success',
               title: 'Chequebook request placed!',
-              text:res.responseMessage
+              text: res.responseMessage
             }
           )
-        }else{
+        } else {
           Swal.fire({
             icon: 'error',
             title: 'Oops...',
@@ -65,10 +64,10 @@ export class ChequeBookRequestComponent implements OnInit {
         }
       });
     }
-    catch{
+    catch {
       this.loading = false;
     }
-    
+
   }
 
 
