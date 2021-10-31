@@ -28,7 +28,6 @@ export class HomeComponent implements OnInit {
       this.primaryAcc = res.primaryAccno;
       this.savingBalanceLocal = res.savingsBalance;
       this.primaryBalanceLocal = res.primaryBalance;
-      //this.fname = res.fname;
       localStorage.setItem("savingAccNo",this.savingAcc.toString());
     });
 

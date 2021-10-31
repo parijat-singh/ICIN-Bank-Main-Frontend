@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
+
 
 @Component({
   selector: 'app-navbar',
@@ -16,8 +18,6 @@ export class NavbarComponent implements OnInit {
   handleLogout(){
     sessionStorage.removeItem("username");
     sessionStorage.clear();
-    //this.authenticationService.logout();
-
     this.router.navigate(["login"]);
   }
 }
